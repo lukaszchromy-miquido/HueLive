@@ -50,6 +50,15 @@ public class Screenshot {
         int red = colors[0];
         int green = colors[1];
         int blue = colors[2];
+        float[] hsb = new float[3];
+
+        Color.RGBtoHSB(red,green,blue,hsb);
+        hsb[1]*=2;
+        Color color =Color.getHSBColor(hsb[0],hsb[1],hsb[2]);
+
+        red = color.getRed();
+        green = color.getGreen();
+        blue = color.getBlue();
 
         double bri = brightness(red, green, blue);
 
